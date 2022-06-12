@@ -16,11 +16,8 @@ img_base_pena = cv2.bitwise_and(img_base_hsv, img_base_hsv, mask = pena)
 cv2.imshow("base_pena", img_base_pena)
 
 img_base_result = cv2.cvtColor(img_base_pena, cv2.COLOR_HSV2BGR)
-cv2.imwrite('resposta.jpg', img_base_result)
+cv2.imwrite('resposta_01.jpg', img_base_result)
 cv2.imshow("resultado final", img_base_result)
 
 cv2.waitKey()
 cv2.destroyAllWindows()
-
-
-
