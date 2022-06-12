@@ -31,7 +31,7 @@ cv2.imshow("Imagem do Tomate em gray", img_tomate_gray)
 contours, _ = cv2.findContours(img_tomate_gray, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 img_tomate_contours = cv2.drawContours(img_tomate, contours, -1, (255, 0, 0), 3)
 
-cv2.imwrite('resposta_02.jpg', img_tomate_contours)
+cv2.imwrite('Resposta_02.jpg', img_tomate_contours)
 cv2.imshow("Imagem do Tomate com Contorno", img_tomate_contours)
 
 cv2.waitKey()
