@@ -3,24 +3,21 @@ import numpy as np
 
 img_base = cv2.imread("base.png")
 
-#blur = cv2.blur(img_base, (11,11))
 median = cv2.medianBlur(img_base, 11)
-#guassian = cv2.GaussianBlur(img_base, (11,11), 0)
-
-#cv2.imshow("base", img_base)
-#cv2.imshow("base_blur", blur)
 cv2.imshow("base_median", median)
-#cv2.imshow("base_guassiana", guassian)
 
 img_base_hsv = cv2.cvtColor(median, cv2.COLOR_BGR2HSV)
 cv2.imshow("base_hsv", img_base_hsv)
 
-v1 = cv2.inRange(img_base_hsv, (0, 50, 200), (10, 255, 255))
-v2 = cv2.inRange(img_base_hsv, (160, 50, 200), (179, 255, 255))
+v1 = cv2.inRange(img_base_hsv, (0, 0, 0), (5, 255, 200))
+v2 = cv2.inRange(img_base_hsv, (175, 190, 50), (255, 255, 200))
 pena = cv2.add(v1,v2)
 img_base_pena = cv2.bitwise_and(img_base_hsv, img_base_hsv, mask = pena)
-
 cv2.imshow("base_pena", img_base_pena)
+
+img_base_result = cv2.cvtColor(img_base_pena, cv2.COLOR_HSV2BGR)
+cv2.imwrite('resposta.jpg', img_base_result)
+cv2.imshow("resultado final", img_base_result)
 
 cv2.waitKey()
 cv2.destroyAllWindows()
